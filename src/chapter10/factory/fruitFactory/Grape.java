@@ -1,42 +1,55 @@
 package chapter10.factory.fruitFactory;
-/** 
- * ClassName: Grape <br/> 
- * Function: 具体水果类--葡萄. <br/> 
- * date: 2019年1月16日 下午6:06:29 <br/> 
+
+/**
+ * ClassName: Grape <br/>
+ * Function: 具体水果类--葡萄. <br/>
+ * date: 2019年1月16日 下午6:06:29 <br/>
  * 
- * @author handm2018@126.com 
- * @version  
+ * @author handm2018@126.com
+ * @version
  */
 public class Grape implements Fruit {
 
-    /** 
-     * TODO 简单描述该方法的实现功能（可选）. 
-     * @see chapter10.factory.fruitFactory.Fruit#plant() 
+    private boolean seedless;
+
+    /**
+     * Function .
      */
     @Override
     public void plant() {
-        // TODO Auto-generated method stub
+        log("Grape has been planted!");
 
     }
 
-    /** 
-     * TODO 简单描述该方法的实现功能（可选）. 
-     * @see chapter10.factory.fruitFactory.Fruit#grow() 
+    /**
+     * Function（可选）.
      */
     @Override
     public void grow() {
-        // TODO Auto-generated method stub
+        log("Grape is growing!");
 
     }
 
-    /** 
-     * TODO 简单描述该方法的实现功能（可选）. 
-     * @see chapter10.factory.fruitFactory.Fruit#harvest() 
+    /**
+     * Function 简单描述该方法的实现功能（可选）.
      */
     @Override
     public void harvest() {
-        // TODO Auto-generated method stub
+        log("Grape has been harvested!");
 
     }
+
+    private void log(String msg) {
+        System.out.println(msg);
+    }
+
+    public boolean isSeedless() {
+        return seedless;
+    }
+
+    public void setSeedless(boolean seedless) {
+        this.seedless = seedless;
+    }
+
 
 }

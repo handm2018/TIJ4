@@ -14,8 +14,6 @@ public class Apple implements Fruit {
 
     /**
      * 种植.
-     * 
-     * @see chapter10.factory.fruitFactory.Fruit#plant()
      */
     @Override
     public void plant() {
@@ -24,8 +22,6 @@ public class Apple implements Fruit {
 
     /**
      * 生长.
-     * 
-     * @see chapter10.factory.fruitFactory.Fruit#grow()
      */
     @Override
     public void grow() {
@@ -35,12 +31,10 @@ public class Apple implements Fruit {
 
     /**
      * 收获.
-     * 
-     * @see chapter10.factory.fruitFactory.Fruit#harvest()
      */
     @Override
     public void harvest() {
-        System.out.println("apple harvest");
+        System.out.println("apple has been harvested");
 
     }
 
