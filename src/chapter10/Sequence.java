@@ -98,7 +98,7 @@ public class Sequence {
          */
         @Override
         public Object cuurent() {
-            return items[i];
+            return items[i-1];
         }
 
         /**
@@ -114,7 +114,9 @@ public class Sequence {
 
     }
 
-
+    public reverseSelector reSelector() {
+        return new reverseSelector();
+    }
 
     public static void main(String[] args) {
 
@@ -128,12 +130,19 @@ public class Sequence {
 
         // 获取容器迭代器
         Selector selector = sequence.selector();
+        reverseSelector reSelector = sequence.reSelector();
 
         // 使用迭代器遍历元素
         while (!selector.end()) {
             System.out.println("current :" + selector.cuurent());
             selector.next();
         }
+
+        while (!reSelector.end()) {
+            System.out.println("recurrent:" + reSelector.cuurent());
+            reSelector.next();
+        }
+
 
         Sequence hasStrs = new Sequence(15);
 
