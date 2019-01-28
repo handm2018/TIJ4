@@ -38,6 +38,8 @@ public class Sequence {
     public void add(Object x) {
         if (next < items.length) {
             items[next++] = x;
+        } else {
+            items = new Object[2*items.length];
         }
     }
 
