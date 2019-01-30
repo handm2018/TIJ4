@@ -19,6 +19,7 @@ public class E04_MovieNameGenerator {
         return array;
     }
 
+
     public static Collection<String> fill(Collection<String> c) {
         for (int i = 0; i < 5; i++) {
             c.add(mng.next());
