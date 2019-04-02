@@ -83,6 +83,43 @@ public class Sequence {
         return new SequenceSelector();
     }
 
+    private class reverseSelector implements Selector {
+
+        private int i = items.length;
+
+        /**
+         * Function（可选）.
+         */
+        @Override
+        public boolean end() {
+            return i == 0;
+        }
+
+        /**
+         * Function（可选）.
+         */
+        @Override
+        public Object cuurent() {
+            return items[i-1];
+        }
+
+        /**
+         * Function （可选）.
+         */
+        @Override
+        public void next() {
+            if (i > 0) {
+                i--;
+            }
+
+        }
+
+    }
+
+    public reverseSelector reSelector() {
+        return new reverseSelector();
+    }
+
     public static void main(String[] args) {
 
         // 创建容器
@@ -95,6 +132,7 @@ public class Sequence {
 
         // 获取容器迭代器
         Selector selector = sequence.selector();
+        reverseSelector reSelector = sequence.reSelector();
 
         // 使用迭代器遍历元素
         while (!selector.end()) {
@@ -102,10 +140,16 @@ public class Sequence {
             selector.next();
         }
 
+        while (!reSelector.end()) {
+            System.out.println("recurrent:" + reSelector.cuurent());
+            reSelector.next();
+        }
+
+
         Sequence hasStrs = new Sequence(15);
 
         for (int i = 0; i < 15; i++) {
-            hasStrs.add(new HasString("元素" + (i+1)));
+            hasStrs.add(new HasString("元素" + (i + 1)));
         }
 
         Selector selector2 = hasStrs.selector();

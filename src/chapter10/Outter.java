@@ -1,8 +1,6 @@
 package chapter10;
 /** 
  * ClassName: Outter <br/> 
- * Function: TODO ADD FUNCTION. <br/> 
- * Reason: TODO ADD REASON(可选). <br/> 
  * date: 2019年1月11日 上午11:46:52 <br/> 
  * 
  * @author handm2018@126.com 
