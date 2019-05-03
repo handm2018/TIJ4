@@ -16,7 +16,7 @@ public class ArrayOptions {
         BerylliumSphere[] a;
         //声明并初始化容量为5的数组
         BerylliumSphere[] b = new BerylliumSphere[5];
-        //数组中的引用初始化为null
+        //对象数组中的元素初始化为null
         System.out.println(Arrays.toString(b));
         BerylliumSphere[] c = new BerylliumSphere[4];
         for (int i = 0; i < c.length; i++) {
@@ -35,10 +35,10 @@ public class ArrayOptions {
         a = d;
         System.out.println(a.length);
 
-        //引用类型的数组与基本类型的数组用法一样
+        //对象数组与基本类型的数组用法一样
         int[] e;
         int[] f = new int[5];
-        //基本类型的数组，若是数值型初始化为0
+        //基本类型的数组，若是int初始化为0
         System.out.println(Arrays.toString(f));
         int[] g = new int[5];
         for (int i = 0; i < g.length; i++) {
