@@ -20,7 +20,9 @@ public class LoggingException2 {
 	
 	static void logException (Exception e) {
 		StringWriter trace = new StringWriter();
+		// printStackTrace()方法默认不会产生字符串
 		e.printStackTrace(new PrintWriter(trace));
+		// 使用log日志的方式，将异常信息使用string的方式输出
 		logger.severe(trace.toString());
 	}
 	
