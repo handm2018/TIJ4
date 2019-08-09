@@ -162,10 +162,9 @@ public class Dynamicfields {
             System.out.println("df.getField(\"d\"):" + df.getField("d"));
             Object field = df.setField("a", null);
         } catch (DynamicFieldsException e) {
-            // TODO: handle exception
+            e.printStackTrace(System.out);
         } catch (NoSuchFieldException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 }
