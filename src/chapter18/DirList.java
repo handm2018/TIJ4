@@ -1,6 +1,5 @@
 package chapter18;
 
-import org.junit.Test;
 
 import java.io.File;
 import java.io.FilenameFilter;

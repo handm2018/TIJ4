@@ -2,6 +2,7 @@ package chapter18;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * @author : handongming
@@ -16,8 +17,55 @@ public class FileMethodDemo {
         constructMethod();
         createMethod();
         deleteMethod();
+        renameMethod();
+        judgementMethod();
+
+        getMethod();
 
 
+    }
+
+    private static void getMethod() throws IOException {
+        File file1 = new File("E:/io/a.txt");
+        File file2 = new File("E:/io");
+        //public String getName()返回由此抽象路径名表示的文件或目录的名称。该名称是路径名名称序列中的最后一个名称。如果路径名名称序列为空，则返回空字符串。 此抽象路径名表示的文件或目录的名称；如果路径名的名称序列为空，则返回空字符串
+        System.out.println("a.txt文件的名字："+file1.getName());
+        //public long lastModified()返回此抽象路径名表示的文件最后一次被修改的时间。 表示文件最后一次被修改的时间的 long 值，用与时间点（1970 年 1 月 1 日，00:00:00 GMT）之间的毫秒数表示；如果该文件不存在，或者发生 I/O 错误，则返回 0L
+        System.out.println("a.txt文件最后修改时间是："+ new Date(file1.lastModified()));
+        //public long length()返回由此抽象路径名表示的文件的长度。如果此路径名表示一个目录，则返回值是不确定的。 此抽象路径名表示的文件的长度，以字节为单位；如果文件不存在，则返回 0L
+        System.out.println("a.txt文件的内容长度："+file1.length());
+        /**System.out.println("io文件目录的内容长度："+file2.length());  */
+        //public File getAbsoluteFile()返回此抽象路径名的绝对路径名形式。等同于 new File(this.getAbsolutePath())。绝对抽象路径名，它与此抽象路径名表示相同的文件或目录
+        System.out.println("a.txt文件的绝对路径："+file1.getAbsolutePath());
+        //public String getCanonicalPath()throws IOException返回此抽象路径名的规范路径名字符串。规范路径名字符串，它与此抽象路径名表示相同的文件或目录
+        System.out.println("a.txt文件的规范路径名字符串："+file1.getCanonicalPath());
+    }
+
+    private static void judgementMethod() {
+        File dict = new File("E:/io");
+        File file1 = new File("E:/io/a.txt");
+        //public boolean canRead()测试应用程序是否可以读取此抽象路径名表示的文件。当且仅当此抽象路径名指定的文件存在且 可被应用程序读取时，返回 true；否则返回 false
+        System.out.println("file1 is canRead:" + file1.canRead());
+        //public boolean canWrite()测试应用程序是否可以修改此抽象路径名表示的文件。当且仅当文件系统实际包含此抽象路径名表示的文件且 允许应用程序对该文件进行写入时，返回 true；否则返回 false
+        System.out.println("file1 is canWrite:" + file1.canWrite());
+        //public boolean exists()测试此抽象路径名表示的文件或目录是否存在。当且仅当此抽象路径名表示的文件或目录存在时，返回 true；否则返回 false
+        System.out.println("file1 is exists:" + file1.exists());
+        System.out.println("dict is exists:" + dict.exists());
+        //public boolean isDirectory()测试此抽象路径名表示的文件是否是一个目录。 当且仅当此抽象路径名表示的文件存在且 是一个目录时，返回 true；否则返回 false
+        System.out.println("dict is directory:"+ dict.isDirectory());
+        //public boolean isFile()测试此抽象路径名表示的文件是否是一个标准文件。如果该文件不是一个目录，并且满足其他与系统有关的标准，那么该文件是标准 文件。由 Java 应用程序创建的所有非目录文件一定是标准文件。 当且仅当此抽象路径名表示的文件存在且 是一个标准文件时，返回 true；否则返回 false
+        System.out.println("file1 is file:"+file1.isFile());
+        //public boolean isHidden()测试此抽象路径名指定的文件是否是一个隐藏文件。当且仅当此抽象路径名表示的文件根据底层平台约定是隐藏文件时，返回 true
+        System.out.println("file1 is hidden:"+file1.isHidden());
+    }
+
+    private static void renameMethod() {
+        //public boolean renameTo(File dest)重新命名此抽象路径名表示的文件
+        //1.如果源文件和目标文件在一个目录下，重命名；2.如果不在一个目录下，剪切+重命名
+        File src = new File("E:/io/newFile.txt");
+        File dest = new File("E:/io/a.txt");
+        boolean isRenamed = src.renameTo(dest);
+        System.out.println("文件名称修改是否成功："+isRenamed);
     }
 
     /**
