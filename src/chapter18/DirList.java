@@ -1,5 +1,7 @@
 package chapter18;
 
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
@@ -32,6 +34,11 @@ public class DirList {
 
 }
 
+/**
+ * 使得list()方法可以回调accept方法，这种结构通常称为回调结构
+ * 同时为list()方法提供算法，这也是策略模式的一个例子
+ *
+ */
 class DirFilter implements FilenameFilter{
 
     private Pattern pattern;
