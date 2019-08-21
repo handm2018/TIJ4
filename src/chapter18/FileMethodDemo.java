@@ -2,6 +2,7 @@ package chapter18;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -14,17 +15,45 @@ import java.util.Date;
 public class FileMethodDemo {
 
     public static void main(String[] args) throws IOException {
-        constructMethod();
-        createMethod();
-        deleteMethod();
-        renameMethod();
-        judgementMethod();
+//        constructMethod();
+//        createMethod();
+//        deleteMethod();
+//        renameMethod();
+//        judgementMethod();
+//
+//        getMethod();
 
-        getMethod();
+        listMethod();
 
 
     }
 
+    /**
+     *@Description: list方法
+     *@Param: 
+     *@return: 
+     *@Author: your name
+     *@date: 2019/8/21
+     */
+    private static void listMethod() {
+        File file1 = new File("E:/io");
+        //public String[] list()返回一个字符串数组，这些字符串指定此抽象路径名表示的目录中的文件和目录
+        String[] files1 = file1.list();
+        System.out.println(Arrays.toString(files1));
+        //public String[] list(FilenameFilter filter)返回一个字符串数组，这些字符串指定此抽象路径名表示的目录中满足指定过滤器的文件和目录。
+        String[] files2 = file1.list();
+        //public File[] listFiles()返回一个抽象路径名数组，这些路径名表示此抽象路径名表示的目录中的文件。
+
+        //public File[] listFiles(FilenameFilter filter)返回抽象路径名数组，这些路径名表示此抽象路径名表示的目录中满足指定过滤器的文件和目录。
+    }
+
+    /**
+     *@Description: File类的获取功能
+     *@Param: 
+     *@return: 
+     *@Author: your name
+     *@date: 2019/8/21
+     */
     private static void getMethod() throws IOException {
         File file1 = new File("E:/io/a.txt");
         File file2 = new File("E:/io");
@@ -41,6 +70,13 @@ public class FileMethodDemo {
         System.out.println("a.txt文件的规范路径名字符串："+file1.getCanonicalPath());
     }
 
+    /**
+     *@Description: File 类的判断
+     *@Param: 
+     *@return: 
+     *@Author: your name
+     *@date: 2019/8/21
+     */
     private static void judgementMethod() {
         File dict = new File("E:/io");
         File file1 = new File("E:/io/a.txt");
@@ -59,6 +95,13 @@ public class FileMethodDemo {
         System.out.println("file1 is hidden:"+file1.isHidden());
     }
 
+    /**
+     *@Description: 重命名功能
+     *@Param: 
+     *@return: 
+     *@Author: your name
+     *@date: 2019/8/21
+     */
     private static void renameMethod() {
         //public boolean renameTo(File dest)重新命名此抽象路径名表示的文件
         //1.如果源文件和目标文件在一个目录下，重命名；2.如果不在一个目录下，剪切+重命名

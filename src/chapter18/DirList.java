@@ -23,7 +23,6 @@ public class DirList {
             list = path.list();
         } else {
             list = path.list(new DirFilter(args[0]));
-
         }
         Arrays.sort(list,String.CASE_INSENSITIVE_ORDER);
         for (String dirItem : list) {
