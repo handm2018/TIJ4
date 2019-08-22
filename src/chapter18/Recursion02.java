@@ -1,10 +1,7 @@
 package chapter18;
 
 import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
+import java.io.FileFilter;
 
 /**
  * @author : handongming
@@ -15,30 +12,78 @@ import java.util.regex.Pattern;
  */
 public class Recursion02 {
 
-    // 过滤D:\\test下，以及子目录中扩展名是.jpg的文件，输出其绝对路径。
-    public static List<String> getAbsoPath(File file) {
-        List<String> result = new ArrayList<>();
-        if (file.isDirectory()) {
-            String[] files = file.list();
-            for (String name : files) {
+    /**
+     *@Description: 普通递归
+     *@Param: 
+     *@return: 
+     *@Author: your name
+     *@date: 2019/8/22
+     */
+    public static void scanDic(File dest) {
+
+        if (dest.isFile()) {
+            System.out.println("传入对象是文件，不是目录");
+            return;
+        }
+
+        File[] files = dest.listFiles();
+        if (files != null && files.length > 0) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    scanDic(file);
+                } else {
+                    if (file.getName().endsWith(".jpg")) {
+                        System.out.println(file.getAbsolutePath());
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     *@Description: 过滤器+递归
+     *@Param: 
+     *@return: 
+     *@Author: your name
+     *@date: 2019/8/22
+     */
+    public static void scanDic2(File dest) {
+        File[] files = dest.listFiles(new DicFilter());
+        if (files != null && files.length > 0) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    scanDic2(file);
+                } else {
+                    System.out.println(file.getAbsolutePath());
+                }
 
             }
         }
-
-        return null;
     }
+
+    public static void main(String[] args) {
+        File dest = new File("E:/io");
+        scanDic(dest);
+        System.out.println("--------------------");
+        scanDic2(dest);
+    }
+
+
 
 }
 
-
-class filter implements FilenameFilter {
-
+/**
+ *@Description: boolean accept(File pathname)测试指定抽象路径名是否应该包含在某个路径名列表中。此接口的实例可传递给 File 类的 listFiles(FileFilter) 方法。
+ *@Param: 
+ *@return: 
+ *@Author: your name
+ *@date: 2019/8/22
+ */
+class DicFilter implements FileFilter {
     @Override
-    public boolean accept(File dir, String name) {
-
-
-
-        return true;
+    public boolean accept(File pathname) {
+        return pathname.isDirectory() || pathname.getName().endsWith(".jpg");
     }
 }
+
 
