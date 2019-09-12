@@ -1,6 +1,6 @@
 package chapter18;
 
-import net.mindview.util.PPrint;
+//import net.mindview.util.PPrint;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -51,7 +51,8 @@ public final class Directory {
 
         @Override
         public String toString() {
-            return "dirs:"+ PPrint.pformat(dirs) +System.lineSeparator()+"files:"+PPrint.pformat(files);
+           // return "dirs:"+ PPrint.pformat(dirs) +System.lineSeparator()+"files:"+PPrint.pformat(files);
+            return "dirs:"+ dirs +System.lineSeparator()+"files:"+files;
         }
     }
 
