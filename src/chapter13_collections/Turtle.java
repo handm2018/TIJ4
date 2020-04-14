@@ -1,4 +1,4 @@
-package chapter13;
+package chapter13_collections;
 
 import java.util.Formatter;
 
