@@ -8,14 +8,14 @@ import java.util.*;
  *@author: 韩东明
  *@date: 2020/05/06 10:22
  */
-public class Student implements Comparable {
+public class Student2 {
     private String name;
     private Integer age;
 
-    public Student() {
+    public Student2() {
     }
 
-    public Student(String name, Integer age) {
+    public Student2(String name, Integer age) {
         this.name = name;
         this.age = age;
     }
@@ -44,22 +44,11 @@ public class Student implements Comparable {
                 '}';
     }
 
-    /**
-     * 年龄由大到小排序
-     * @param o
-     * @return
-     */
-    @Override
-    public int compareTo(Object o) {
-        Student o1 = (Student) o;
-        return o1.age - age == 0 ? o1.name.compareTo(this.name) : o1.age - age;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
+        Student2 student = (Student2) o;
         return Objects.equals(name, student.name) &&
                 Objects.equals(age, student.age);
     }
