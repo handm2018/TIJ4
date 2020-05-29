@@ -1,46 +1,37 @@
 package chapter18;
 
-
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
 /**
- * @author : handongming
- * @date : Created in 2019/8/15 14:35
- * @description:
- * @modified By:
- * @version:
+ * 目录列表
  */
 public class DirList {
 
     public static void main(String[] args) {
-        File path = new File(".");
-        System.out.println(path);
-        String[] list;
-        if (args.length==0){
-            list = path.list();
-        } else {
-            list = path.list(new DirFilter(args[0]));
-        }
-        Arrays.sort(list,String.CASE_INSENSITIVE_ORDER);
+        File path = new File("/home/handm/IdeaProjects/TIJ4/src/chapter10");
+        // 只获取以.java结尾的文件列表
+        String[] list = path.list(new DirFilter("^[A-Za-z]+.java$"));
+        Arrays.sort(list, String.CASE_INSENSITIVE_ORDER);
         for (String dirItem : list) {
             System.out.println(dirItem);
         }
     }
-
 }
 
 /**
- * 使得list()方法可以回调accept方法，这种结构通常称为回调结构
- * 同时为list()方法提供算法，这也是策略模式的一个例子
+ * 文件过滤器
+ *      接收正则表达式的参数
  *
+ * 策略模式的一种使用方式
  */
-class DirFilter implements FilenameFilter{
+class DirFilter implements FilenameFilter {
 
-    private Pattern pattern;
-    public DirFilter(String regex){
+    private Pattern pattern;      
+
+    public DirFilter(String regex) {
         pattern = Pattern.compile(regex);
     }
 
