@@ -16,5 +16,7 @@ public class InfiniteRecursion {
             infiniteRecursionList.add(new InfiniteRecursion());
         }
         System.out.println(infiniteRecursionList);
+        System.out.println(infiniteRecursionList);
+        System.out.println(infiniteRecursionList);
     }
 }
